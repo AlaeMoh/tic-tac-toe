@@ -1,0 +1,98 @@
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #6c63ff;
+      --accent-2: #8f7af6;
+      --muted: #6c757d;
+      --tile: #f1f3f8;
+    }
+
+    body{
+      background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #223;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-top: 40px;
+    }
+
+    .game-card{
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(34,34,51,0.08);
+    }
+
+    .header-title{
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      font-size: 1.25rem;
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Board */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .tile {
+      background: linear-gradient(180deg, var(--tile), #ffffff);
+      border-radius: 12px;
+      height: 96px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #222;
+      border: 2px solid transparent;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tile:active { transform: scale(.98); }
+    .tile:focus { outline: none; box-shadow: 0 6px 18px rgba(108,99,255,0.18); border-color: rgba(108,99,255,0.28); }
+
+    /* X and O styles (for when you add classes .x or .o) */
+    .tile.x { color: #ff6b6b; }
+    .tile.o { color: #1f8ef1; }
+
+    /* Scoreboard */
+    .score {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      margin-top: 8px;
+    }
+    .score .pill{
+      background: linear-gradient(90deg, rgba(108,99,255,0.12), rgba(143,122,246,0.06));
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight:600;
+      color: var(--accent);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    /* Controls */
+    .controls { display:flex; gap:10px; justify-content:center; margin-top:18px; }
+    .btn-reset { background: transparent; border:1px dashed #e3e6ef; color: #6b7280; }
+    .btn-primary-ghost { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; border: none; box-shadow: 0 6px 18px rgba(108,99,255,0.16); }
+
+    /* Responsive sizes */
+    @media (max-width: 576px){
+      .tile { height: 72px; font-size: 1.6rem; }
+      .game-card { padding: 18px; border-radius: 12px; }
+    }
